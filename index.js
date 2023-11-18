@@ -1,8 +1,66 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-// TODO: Create an array of questions for user input
-const questions = [];
+const fs = require('fs');
 
+// TODO: Create an array of questions for user input
+const questions = [
+    inquirer
+    .prompt([
+    
+    {
+    type: 'input',
+    name: 'Project Title',
+    message: 'What is your projects title?',
+    },
+    {
+    type: 'input',
+    name: 'Description',
+    message: 'Provide a description explaining the what, why, and how of your project.',
+    },
+    {
+    type: 'input',
+    name: 'Table of Contents',
+    message: 'Add a table of contents with links to the section',
+    },
+    {
+    type: 'input',
+    name: 'Installation',
+    message: 'What are the steps required to install your project?',
+    },
+    {
+    type: 'input',
+    name: 'Usage',
+    message: 'Provide instructions and examples for use. Include screenshots as needed.',
+    },
+    {
+    type: 'input',
+    name: 'Credits',
+    message: 'List your collaborators, if any, with links to their GitHub profiles.',
+    },
+    {
+    type: 'input',
+    name: '',
+    message: '',
+    },
+    {
+    type: 'input',
+    name: '',
+    message: '',
+    },
+])
+];
+
+
+
+.then((answers) => {
+
+const htmlPageContent = generateHTML(answers);
+
+fs.writeFile('index.html', htmlPageContent, (err) =>
+
+err ? console.log(err) : console.log('Successfully created!')
+);
+});
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
