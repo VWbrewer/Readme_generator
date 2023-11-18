@@ -1,6 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('.generateMarkdown.js');
+
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -15,7 +18,11 @@ const questions = [
     {
     type: 'input',
     name: 'Description',
-    message: 'Provide a description explaining the what, why, and how of your project.',
+    message: 'Provide a description explaining the what, why, and how of your project',
+    'What was your motivation?':
+    'Why did you build this project?',
+    'What problem does it solve?':
+    'What did you learn?',
     },
     {
     type: 'input',
@@ -33,19 +40,24 @@ const questions = [
     message: 'Provide instructions and examples for use. Include screenshots as needed.',
     },
     {
-    type: 'input',
-    name: 'Credits',
-    message: 'List your collaborators, if any, with links to their GitHub profiles.',
+    type: 'list',
+    name: 'License',
+    message: 'Select a license that you used from the list.',
     },
     {
     type: 'input',
-    name: '',
-    message: '',
+    name: 'Contributing',
+    message: 'If you would like to contribute to it please follow these steps.',
     },
     {
     type: 'input',
-    name: '',
-    message: '',
+    name: 'Tests',
+    message: 'Instructions on how to run tests.',
+    },
+    {
+    type: 'input',
+    name: 'Questions',
+    message: 'Please enter the following information.',
     },
 ])
 ];
@@ -69,33 +81,3 @@ function init() {}
 
 // Function call to initialize app
 init();
-
-
-
-
-
-
-
-
-
-
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
-}
-
-module.exports = generateMarkdown;
