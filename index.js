@@ -2,31 +2,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const { userInfo } = require('os');
 
 
 // TODO: Create an array of questions for user input
 const questions = [
-    inquirer
-    .prompt([
+
     
     {
     type: 'input',
-    name: 'Project Title',
+    name: 'Title',
     message: 'What is your projects title?',
     },
     {
     type: 'input',
     name: 'Description',
-    message: 'Provide a description explaining the what, why, and how of your project',
-    'What was your motivation?':
-    'Why did you build this project?',
-    'What problem does it solve?':
-    'What did you learn?',
-    },
-    {
-    type: 'input',
-    name: 'Table of Contents',
-    message: 'Add a table of contents with links to the section',
+    message: 'Provide a description explaining the what, why, and how of your project, What was your motivation?,Why did you build this project?, What problem does it solve, What did you learn?'
     },
     {
     type: 'input',
@@ -42,6 +33,7 @@ const questions = [
     type: 'list',
     name: 'License',
     message: 'Select a license that you used from the list.',
+    choices:["MIT","ISC","GPL","APACHE 2.0","None"]
     },
     {
     type: 'input',
@@ -55,35 +47,50 @@ const questions = [
     },
     {
     type: 'input',
-    name: 'Questions',
-    message: 'Please enter the following information.',
-    },
-    {
-    type: 'input',
     name: 'username',
     message: 'Please enter your GitHub user name?',
-    validate: username => validateInput(username, "Please provide your user name.")
+    validate: (username) =>
+    {        if(!username) {
+            return  "Please provide your GitHub name."
+        }
+        return true;
+    }
     },
     {
     type: 'input',
     name: 'email',
     message: 'Please enter your e-mail?',
-    validate: email => validateInput(email, "Please add your e-mail.")
+    validate: (email) =>
+    {        if(!email) {
+            return  "Please provide your e-mail."
+        }
+        return true;
+    }
     },
-])
-];
+]
+
+
 
 
 
 
 
 // TODO: Create a function to write README file
-.then()
-const readmePageContent = generateREADME(answers);
-fs.writeToFile('README.md', readmePageContent) {}
+
+
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then(answers => {
+        console.log(answers)
+        
+        fs.writeFileSync('README.md', generateMarkdown(answers),function(err){
+            if(err) throw err;
+        })
+        
+    })
+}
 
 // Function call to initialize app
 init();
