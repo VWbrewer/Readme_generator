@@ -60,9 +60,6 @@ function generateMarkdown(data) {
   ## Usage
   ${data.Usage}
 
-  ## License
-  ${renderLicenseSection(data.License)}
-
   ## Contributing
   [Contributor Covenant] (https://www.contributor-covenant.org/)
   ${data.Contributing}

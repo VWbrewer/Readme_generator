@@ -7,8 +7,6 @@ const { userInfo } = require('os');
 
 // TODO: Create an array of questions for user input
 const questions = [
-
-    
     {
     type: 'input',
     name: 'Title',
@@ -17,7 +15,7 @@ const questions = [
     {
     type: 'input',
     name: 'Description',
-    message: 'Provide a description explaining the what, why, and how of your project, What was your motivation?,Why did you build this project?, What problem does it solve, What did you learn?'
+    message: 'Provide a description explaining the what, why, and how of your project, What was your motivation?, Why did you build this project?, What problem does it solve, What did you learn?'
     },
     {
     type: 'input',
@@ -50,7 +48,7 @@ const questions = [
     name: 'username',
     message: 'Please enter your GitHub user name?',
     validate: (username) =>
-    {        if(!username) {
+    {if(!username) {
             return  "Please provide your GitHub name."
         }
         return true;
@@ -61,7 +59,7 @@ const questions = [
     name: 'email',
     message: 'Please enter your e-mail?',
     validate: (email) =>
-    {        if(!email) {
+    {if(!email) {
             return  "Please provide your e-mail."
         }
         return true;
@@ -69,15 +67,7 @@ const questions = [
     },
 ]
 
-
-
-
-
-
-
 // TODO: Create a function to write README file
-
-
 
 // TODO: Create a function to initialize app
 function init() {
