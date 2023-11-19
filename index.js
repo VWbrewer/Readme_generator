@@ -58,6 +58,18 @@ const questions = [
     name: 'Questions',
     message: 'Please enter the following information.',
     },
+    {
+    type: 'input',
+    name: 'username',
+    message: 'Please enter your GitHub user name?',
+    validate: username => validateInput(username, "Please provide your user name.")
+    },
+    {
+    type: 'input',
+    name: 'email',
+    message: 'Please enter your e-mail?',
+    validate: email => validateInput(email, "Please add your e-mail.")
+    },
 ])
 ];
 

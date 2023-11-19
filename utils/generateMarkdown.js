@@ -6,7 +6,7 @@ function renderLicenseBadge(license) {
   if (!license) {
   return ``;
 } else {
-  return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`
+  return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`;
 }
 }
 
@@ -16,14 +16,12 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (!license) {
     return ``;
-  }if (license === 'MIT') {
-    return `https://lbesson.mit-license.org/`
-  }
-  if (license === 'GPL') {
-    return `http://perso.crans.org/besson/LICENSE.html`
-  }
-  if (license === 'CC--0') {
-    return `https://creativecommons.org/licenses/by-nd/4.0` 
+  } else if (license === 'MIT') {
+    return `https://lbesson.mit-license.org/`;
+  } else if (license === 'GPL') {
+    return `http://perso.crans.org/besson/LICENSE.html`;
+  } else if (license === 'CC0') {
+    return `https://creativecommons.org/licenses/by-nd/4.0`;
   }
 }
 
@@ -35,7 +33,7 @@ function renderLicenseSection(license) {
     return ``;
   } else {
     return `## License
-    This project is covered under the ${license} license.`
+    This ${license} license was used for this project.`
   }
 }
 
@@ -75,9 +73,7 @@ function generateMarkdown(data) {
   ## Questions
   If you have questions about this project please connect with me through:  
   GitHub: https://github.com/${data.github}  
-  Email: ${data.email}
-
-`;
+  Email: ${data.email}`;
 }
 
 module.exports = generateMarkdown;
